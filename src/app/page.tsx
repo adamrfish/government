@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useActionState } from "react";
 import { login, type LoginState } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
@@ -21,13 +22,17 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background font-sans px-4">
       <div className="w-full max-w-sm flex flex-col items-center gap-6">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/avatar.webp"
-          alt="Point11"
-          className="h-20 w-20 rounded-full object-cover"
-        />
-        <h1 className="text-3xl font-bold">Point11</h1>
+        <div className="flex flex-col items-center gap-2">
+          <Image
+            src="/avatar.webp"
+            alt="Point11"
+            width={80}
+            height={80}
+            className="rounded-full object-cover"
+            priority
+          />
+          <h1 className="text-3xl font-bold">Point11</h1>
+        </div>
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-2xl">Sign in</CardTitle>
