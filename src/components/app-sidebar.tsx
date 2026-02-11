@@ -1,8 +1,5 @@
-"use client";
-
 import { BookOpen, CheckSquare, Compass, DollarSign, LogOut, Radar, Receipt, Shield, Lightbulb } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -16,7 +13,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar";
 import { logout } from "@/lib/actions";
 
@@ -35,18 +31,7 @@ const stateItems = [
   { title: "Raising Capital", href: "/state-raising-capital", icon: DollarSign },
 ];
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const { setOpenMobile } = useSidebar();
-  return (
-    <Link href={href} onClick={() => setOpenMobile(false)}>
-      {children}
-    </Link>
-  );
-}
-
 export function AppSidebar({ session }: { session: { email: string } }) {
-  const pathname = usePathname();
-
   return (
     <Sidebar>
       <SidebarHeader>
@@ -63,11 +48,11 @@ export function AppSidebar({ session }: { session: { email: string } }) {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === "/start-here"}>
-                  <NavLink href="/start-here">
+                <SidebarMenuButton asChild>
+                  <Link href="/start-here">
                     <Compass />
                     <span>Start Here</span>
-                  </NavLink>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -80,11 +65,11 @@ export function AppSidebar({ session }: { session: { email: string } }) {
             <SidebarMenu>
               {federalItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild isActive={pathname === item.href}>
-                    <NavLink href={item.href}>
+                  <SidebarMenuButton asChild>
+                    <Link href={item.href}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </NavLink>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -98,11 +83,11 @@ export function AppSidebar({ session }: { session: { email: string } }) {
             <SidebarMenu>
               {stateItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild isActive={pathname === item.href}>
-                    <NavLink href={item.href}>
+                  <SidebarMenuButton asChild>
+                    <Link href={item.href}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </NavLink>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -115,11 +100,11 @@ export function AppSidebar({ session }: { session: { email: string } }) {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === "/action-items"}>
-                  <NavLink href="/action-items">
+                <SidebarMenuButton asChild>
+                  <Link href="/action-items">
                     <CheckSquare />
                     <span>Action Items</span>
-                  </NavLink>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
