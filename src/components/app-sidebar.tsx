@@ -116,7 +116,7 @@ export function AppSidebar({ session }: { session: { email: string } }) {
         <div className="px-2 py-2">
           <div className="flex items-center gap-2">
             <Avatar className="h-8 w-8">
-              <AvatarImage src="/avatar.webp" alt={session.email} />
+              <AvatarImage src="/avatar.webp" alt={session.email} className="object-cover" />
               <AvatarFallback className="text-xs">
                 {session.email.slice(0, 2).toUpperCase()}
               </AvatarFallback>

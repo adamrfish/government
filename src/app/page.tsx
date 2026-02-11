@@ -19,8 +19,14 @@ export default function LoginPage() {
   );
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background font-sans">
+    <div className="flex min-h-screen items-center justify-center bg-background font-sans px-4">
       <div className="w-full max-w-sm flex flex-col items-center gap-6">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/avatar.webp"
+          alt="Point11"
+          className="h-20 w-20 rounded-full object-cover"
+        />
         <h1 className="text-3xl font-bold">Point11</h1>
       <Card className="w-full">
         <CardHeader>

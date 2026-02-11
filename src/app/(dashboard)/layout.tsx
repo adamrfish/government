@@ -21,7 +21,7 @@ export default async function DashboardLayout({
           <Separator orientation="vertical" className="mr-2 !h-4" />
           <span className="text-sm font-medium">Point11</span>
         </header>
-        <main className="flex-1 p-4">{children}</main>
+        <main className="flex-1 p-2 sm:p-4">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );
